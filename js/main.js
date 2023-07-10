@@ -60,7 +60,7 @@ function  preview ()
     {
         trs += `
         <tr>
-        <td>${i}</td>
+        <td>${i+1}</td>
         <td>${products[i].title}</td>
         <td>${products[i].price}</td>
         <td>${products[i].productCat}</td>
