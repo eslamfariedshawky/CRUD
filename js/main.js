@@ -32,7 +32,7 @@ submit.onclick =  function (){
     products.push(newProduct);
     
     console.log(products)
-    localStorage.setItem('product' , JSON.stringify(products))
+    localStorage.setItem('product' , JSON.stringify(products));
     
     clear();
     preview()
@@ -65,16 +65,29 @@ function  preview ()
         <td>${products[i].price}</td>
         <td>${products[i].productCat}</td>
         <td>${products[i].desc}</td>
-        <td><button type="button" class="btn btn-outline-warning">Update </button></td>
-        <td><button type="button" class="btn btn-outline-danger">Delete </button></td>
+        <td><button type="button" class="btn btn-warning" " onclick="update(${i})" >Update </button></td>
+        <td><button type="button" onclick="deleteItem(${i})" class="btn btn-danger"  >Delete </button></td>
     </tr>
         `
     } 
     document.getElementById('tbody').innerHTML = trs;
 }
 
+// clear all products 
 clearData.onclick = function(){
     localStorage.clear();
     products.splice(0);
     preview();
 }
+
+//delete product 
+
+function deleteItem(i)  {
+
+    products.splice(i , 1);
+    localStorage.setItem('product' , JSON.stringify(products));
+    preview();
+
+}
+
+// update product 
